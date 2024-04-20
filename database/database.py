@@ -4,6 +4,7 @@ Includes functions to insert data into the database.
 Centralizes database operations, improving modularity and reuse.
 """
 from sqlalchemy import create_engine
+from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import sessionmaker
 from database.models import *
 from datetime import datetime
@@ -35,12 +36,17 @@ def prep_data_for_insert(options_data):
 # Insert options data into database
 def insertOptions(options_data):
     session = Session()
-    options_data = prep_data_for_insert(options_data)
-    for data in options_data:
-        option = Option(**data)
-        session.add(option)
-    session.commit()
-    session.close()
+    try:
+        options_data = prep_data_for_insert(options_data)
+        for data in options_data:
+            option = Option(**data)
+            session.add(option)
+        session.commit()
+    except SQLAlchemyError as err:
+        session.rollback()
+        print(f'Failed to insert options data: {err}')
+    finally:
+        session.close()
 
 
 def queryOptions():
@@ -58,5 +64,7 @@ def queryOptions():
             for option in options
         ]
         return result
+    except SQLAlchemyError as err:
+        print(f'Failed to grab options data: {err}')
     finally:
         session.close()

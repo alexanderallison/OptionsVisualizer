@@ -27,6 +27,6 @@ class Option(Base): # our object model class
     inTheMoney = Column(String)
     contractSize = Column(String)
     currency = Column(String)
-    ticker = Column(String)
+    ticker = Column(String, nullable=False, index=True)
     expiration = Column(String)
     option_type = Column(String)
