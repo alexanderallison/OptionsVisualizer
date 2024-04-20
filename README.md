@@ -1,6 +1,9 @@
 # OptionsVisualizer
 Python webapp that visualizes options data using a bubble chart
 
+Built with the Flask framework, Plotly for visual, javascript front end, 
+and SQLAlchemy/SQLite for backend storage
+
 Here is a diagram of the layout: 
 
 /OptionsVisualizer<br>
