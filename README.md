@@ -35,15 +35,22 @@ Here is a diagram of the layout:
 │ ├── test_database.py<br>
 │ ├── test_data_structures.py<br>
 
-To setup: 
+**To setup:**
+
 python -m venv venv
 source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 
-Note: already activated on pycharm
+Note: in pycharm use a venv interpreter
+
+**Install libs:** 
 
 pip install flask yfinance plotly pandas sqlalchemy pandas_datareader setuptools yfinance[nospam]
 
-to run:
+**to run:**
+
 python main.py 
 after stats calculated go to to view Bubble chart:
 http://127.0.0.1:5000/chart
+
+<u>** Note: on initial run will take 5-10 min for database to build **</u>
+Has a limit on API calls that shouldn't be spammed. 

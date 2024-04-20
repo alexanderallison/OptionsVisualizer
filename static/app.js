@@ -52,7 +52,7 @@ function createBubbleChart(data)
             mode: 'markers',
             marker:
                 {
-                    size: Math.pow((item.total_options), 0.26),
+                    size: Math.pow((item.total_options), 0.35),
                     color: getBubbleColor(item.call_put_ratio),
                     opacity: 0.5
                 },
@@ -71,9 +71,9 @@ function createBubbleChart(data)
     });
     const layout = {
         title: "Visual of calls and put options for SP500 stock tickers",
-        titleSize: '10000',
         showlegend: false,
-        xaxis: { title: 'Stock Tickers', scale: [-0.5, data.length -0.5], gridcolor: 'gray',
+        xaxis: { title: 'Stock Tickers', scale: [-0.5, data.length -0.5], gridcolor: 'gray', tickangle: -45,
+            automargin: true
         },
         yaxis: { title: `Total Volume of Options between ${minDate} and ${maxDate}`, gridcolor: 'gray'},
         annotations: annotations,
