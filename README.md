@@ -38,7 +38,9 @@ Here is a diagram of the layout:
 To setup: 
 python -m venv venv
 source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-	already activated on pycharm
+
+Note: already activated on pycharm
+
 pip install flask yfinance plotly pandas sqlalchemy pandas_datareader setuptools yfinance[nospam]
 
 to run:
