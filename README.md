@@ -2,38 +2,38 @@
 Python webapp that visualizes options data using a bubble chart
 
 Here is a diagram of the layout: 
-/OptionsVisualizer
-│
-├── app.py                  # Main application file where Flask app is initialized              
-│
-├── data_fetching           # Module for data fetching functionalities
-│   ├── __init__.py
-│   ├── dataFetch.py        # Functions to fetch market data
-│             			      # Functions to fetch S&P 500 tickers
-│
-├── database                # Database interaction module
-│   ├── __init__.py
-│   ├── models.py           # Database models
-│   ├── database.py         # Database connection and session management
-│
-├── data_structures         # Data structures for in-memory processing
-│   ├── __init__.py
-│   ├── HashTable.py   	# Hash table operations
-│
-├── templates               # Flask templates
-│   ├── index.html
-│   ├── chart.html
-│
-├── static                  # Static files like CSS, JS
-│   ├── css
-│   ├── js
-│   
-│
-├── tests                   # Test suite for the application
-│   ├── __init__.py
-│   ├── test_data_fetching.py
-│   ├── test_database.py
-│   ├── test_data_structures.py
+
+/OptionsVisualizer<br>
+│<br>
+├── app.py # Main application file where Flask app is initialized<br>
+│<br>
+├── data_fetching # Module for data fetching functionalities<br>
+│ ├── init.py<br>
+│ ├── dataFetch.py # Functions to fetch market data<br>
+│ ├── sp500_tickers.py # Functions to fetch S&P 500 tickers<br>
+│ <br>
+├── database # Database interaction module<br>
+│ ├── init.py<br>
+│ ├── models.py # Database models<br>
+│ ├── database.py # Database connection and session management<br>
+│ <br>
+├── data_structures # Data structures for in-memory processing<br>
+│ ├── init.py<br>
+│ ├── HashTable.py # Hash table operations<br>
+│ <br>
+├── templates # Flask templates<br>
+│ ├── index.html<br>
+│ ├── chart.html<br>
+│ <br>
+├── static # Static files like CSS, JS<br>
+│ ├── css<br>
+│ ├── js<br>
+│ <br>
+├── tests # Test suite for the application<br>
+│ ├── init.py<br>
+│ ├── test_data_fetching.py<br>
+│ ├── test_database.py<br>
+│ ├── test_data_structures.py<br>
 
 To setup: 
 python -m venv venv
