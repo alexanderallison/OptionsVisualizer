@@ -44,3 +44,4 @@ http://127.0.0.1:5000/chart
 
 <u>** Note: on initial run will take 5-10 min for database to build **</u><br>
 Has a limit on API calls that shouldn't be spammed. 
+
