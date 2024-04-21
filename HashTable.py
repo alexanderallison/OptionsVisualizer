@@ -98,11 +98,9 @@ class HashTable:
                     high_price = max(option['strike'] for option in options)
                     low_price = min(option['strike'] for option in options)
                     expiration_dates = {option['expiration'] for option in options}
-                    if expiration_dates:
-                        sorted_dates = sorted(expiration_dates)
-                    else:
-                        sorted_dates = None
-                    date_range = (sorted_dates[0], sorted_dates[-1]) if sorted_dates else None, None
+                    sorted_dates = sorted(expiration_dates) if expiration_dates else None
+
+                    date_range = (sorted_dates[0], sorted_dates[-1]) if sorted_dates else (None, None)
                 except ValueError as e:
                     print(f"Error: unexpected value: {e}")
                     high_price, low_price = None, None

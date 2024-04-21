@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', function()
                     ...details,
                     call_put_ratio: parseFloat(details.call_put_ratio),
                     total_options: parseInt(details.total_options),
-                    start_date: details.date_range ? details.date_range[0][0] : 'N/A',  // Handling missing data
-                    end_date: details.date_range ? details.date_range[0][1] : 'N/A'  // Handling missing data
+                    start_date: details.date_range ? details.date_range[0] : 'N/A',  // Handling missing data
+                    end_date: details.date_range ? details.date_range[1] : 'N/A'  // Handling missing data
                 };
             });
             console.log("Prepared Data:", dataArray);
