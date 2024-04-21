@@ -122,12 +122,12 @@ function createBubbleChart(data)
         };
     });
     const layout = {
-        title: `Visual of calls and put options for SP500 stock tickers between ${minDate} and ${maxDate}`,
+        title: `Visual of call and put options contracts for SP500 stock tickers between ${minDate} and ${maxDate}`,
         showlegend: false,
         xaxis: { title: 'Stock Tickers', scale: [-0.5, data.length -0.5], gridcolor: 'gray', tickangle: -45,
             automargin: true
         },
-        yaxis: { title: `Total Volume of Options`, gridcolor: 'gray'},
+        yaxis: { title: `Total Volume of Options`, gridcolor: 'gray', automargin: true},
         annotations: annotations,
         margin: {r: 50, l: 50 },
         plot_bgcolor: '#202020',

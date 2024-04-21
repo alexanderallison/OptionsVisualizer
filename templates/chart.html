@@ -9,6 +9,15 @@
 <body>
     <h1>Options Calls to Puts Ratio:</h1>
     <h2>Calculation Time: {{ time_elapsed }} seconds</h2>
+    <div id="legend">
+        <h3>Legend</h3>
+        <div class="legend-item">
+            <span class="color-box" style="background-color: green;"></span> More Calls
+        </div>
+        <div class="legend-item">
+            <span class="color-box" style="background-color: red;"></span> More Puts
+        </div>
+    </div>
     <div id="bubbleChart" style="width:100%;height:1000px;"></div>
     <script src="{{ url_for('static', filename='app.js') }}"></script>
 </body>
