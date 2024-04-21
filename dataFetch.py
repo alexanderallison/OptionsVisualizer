@@ -32,7 +32,7 @@ def getOptionsData(tickers):
         backend=SQLiteCache("yfinance.cache"),
     )
     # now get options data
-    options_heap = BinaryHeap(key=lambda option: option['lastPrice'])
+     # options_heap = BinaryHeap(key=lambda option: option[''])
     options_data = []   # initialize list
     for ticker in tickers:  # loop over all stock tickers
         stock = yf.Ticker(ticker, session=session)  # get ticker data
