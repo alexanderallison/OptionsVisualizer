@@ -15,7 +15,7 @@ class HashTable:
 
     def insert(self, key, val):
 
-        # check load factor and resize if met
+        # check load factor and resize if met or exceeded
         if self.count / self.size >= 0.7:
             self._resize(2 * self.size)
 
@@ -119,16 +119,20 @@ class HashTable:
                 }
         return results
 
-
-""" for testing: 
+"""
+#for testing:
 ht = HashTable()
-ht.insert('AAPL', {'option_type': 'call', 'strike': 150, 'expiration': '2023-12-15'})
-ht.insert('AAPL', {'option_type': 'call', 'strike': 150, 'expiration': '2023-12-15'})
-ht.insert('AAPL', {'option_type': 'put', 'strike': 145, 'expiration': '2023-12-15'})
-ht.insert('GOOG', {'option_type': 'call', 'strike': 1500, 'expiration': '2023-12-15'})
-
+ht.insert('AAPL', {'option_type': 'call', 'strike': 150, 'expiration': '2023-12-15','volume': 1.0})
+ht.insert('AAPL', {'option_type': 'call', 'strike': 150, 'expiration': '2023-12-15','volume': 50.0})
+ht.insert('AAPL', {'option_type': 'put', 'strike': 145, 'expiration': '2023-12-15','volume': 2.0})
+ht.insert('GOOG', {'option_type': 'call', 'strike': 1500, 'expiration': '2023-12-15','volume': 3.0})
+ht.insert('GOOG', {'option_type': 'put', 'strike': 1480, 'expiration': '2023-12-15','volume': 5.0})
 stats = ht.calculate_stats()
-print(stats)
+print(stats) 
+#output stats = dictionary of dictionaries
+# {'AAPL': {'total_calls': 51.0, 'total_puts': 2.0, 'total_options': 53.0, 'call_put_ratio': 25.5, 'high_price': 150, 'low_price': 145, 'date_range': (('2023-12-15', '2023-12-15'), None)}, 
+# 'GOOG': {'total_calls': 3.0, 'total_puts': 5.0, 'total_options': 8.0, 'call_put_ratio': 0.6, 'high_price': 1500, 'low_price': 1480, 'date_range': (('2023-12-15', '2023-12-15'), None)}}
+
 
 class TestHashTable(unittest.TestCase):
     def test_insert_retrieve(self):

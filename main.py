@@ -22,7 +22,7 @@ def check_data_types(options_data):
 def compute_Statistics():
     print("Computing statistics...")
     options_data = queryOptions() # get data from database
-    # print("options data after queryOptions():", options_data[:5])  # Print the first few entries
+    print("options data after queryOptions():", options_data[:5])  # Print the first few entries
     check_data_types(options_data)
     ht = HashTable()
     for option in options_data:

@@ -1,3 +1,6 @@
+import unittest
+
+
 class BinaryHeap:
     def __init__(self, key=lambda x: x):
         self.heap = []
@@ -55,3 +58,19 @@ class BinaryHeap:
     def size(self):
         # Returns number of items in heap.
         return len(self.heap)
+
+"""
+#TESTING
+class TestBinaryHeap(unittest.TestCase):
+    def test_Heap(self):
+        heap = BinaryHeap(key=lambda x: x[''])
+        test_data = [
+    {'ticker': 'MMM', 'option_type': 'call', 'strike': 75.0, 'expiration': '2024-04-26', 'volume': 1.0},
+    {'ticker': 'MMM', 'option_type': 'call', 'strike': 80.0, 'expiration': '2024-04-26', 'volume': 50.0},
+    {'ticker': 'MMM', 'option_type': 'call', 'strike': 83.0, 'expiration': '2024-04-26', 'volume': 2.0},
+    {'ticker': 'MMM', 'option_type': 'call', 'strike': 87.0, 'expiration': '2024-04-26', 'volume': 3.0},
+    {'ticker': 'MMM', 'option_type': 'call', 'strike': 88.0, 'expiration': '2024-04-26', 'volume': 2.0}
+]
+        for data in test_data:
+            heap.insert(data)
+"""

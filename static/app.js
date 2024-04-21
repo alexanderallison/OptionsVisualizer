@@ -22,10 +22,62 @@ document.addEventListener('DOMContentLoaded', function()
             });
             console.log("Prepared Data:", dataArray);
             createBubbleChart(dataArray);
+            //createBarChart(dataArray);
         })
         .catch(error => console.error('Error loading the data:', error));
 });
 
+function createBarChart(data)
+{
+     console.log("Received data for charting:", data);
+     data.forEach(item => {
+        console.log(`Processing ${item.ticker}: Total Options = ${item.total_options}, Ratio = ${item.call_put_ratio}`);
+    });
+
+     let minDate = '9999-12-31';
+    let maxDate = '0000-01-01';
+    data.forEach(item => {
+        if (item.start_date < minDate)
+            minDate = item.start_date;
+        if (item.end_date > maxDate)
+            maxDate = item.end_date;
+    });
+    // define trace objects for plotly - plotly set of data points and styling options
+    const traces = data.map(item => {
+        console.log(`Processing: ${item.ticker}, Ratio: ${item.call_put_ratio}`);
+        return {
+            x: [item.ticker], // x coordinates (ticker symbol)
+            y: [item.total_options], // y coords (sum of calls + puts)
+            text: `${item.high_price} - ${item.low_price}`,
+            type: 'bar'
+        };
+    });
+    const annotations = data.map(item => { // makes labels for the bubbles
+        return {
+            x: item.ticker,
+            y: item.total_options,
+            text: item.ticker, // labels ticker name
+            xanchor: 'center',
+            yanchor: 'middle',
+            showarrow: false
+        };
+    });
+    const layout = {
+        title: `Visual of calls and put options for SP500 stock tickers between ${minDate} and ${maxDate}`,
+        showlegend: false,
+        xaxis: { title: 'Stock Tickers', scale: [-0.5, data.length -0.5], gridcolor: 'gray', tickangle: -45,
+            automargin: true
+        },
+        yaxis: { title: `Total Volume of Options`, gridcolor: 'gray'},
+        annotations: annotations,
+        margin: {r: 50, l: 50 },
+        plot_bgcolor: '#202020',
+        paper_bgcolor: '#202020',
+        font: { color: 'white'}
+    };
+
+    Plotly.newPlot('bubbleChart', traces, layout);
+}
 function createBubbleChart(data)
 {
      console.log("Received data for charting:", data);
@@ -70,12 +122,12 @@ function createBubbleChart(data)
         };
     });
     const layout = {
-        title: "Visual of calls and put options for SP500 stock tickers",
+        title: `Visual of calls and put options for SP500 stock tickers between ${minDate} and ${maxDate}`,
         showlegend: false,
         xaxis: { title: 'Stock Tickers', scale: [-0.5, data.length -0.5], gridcolor: 'gray', tickangle: -45,
             automargin: true
         },
-        yaxis: { title: `Total Volume of Options between ${minDate} and ${maxDate}`, gridcolor: 'gray'},
+        yaxis: { title: `Total Volume of Options`, gridcolor: 'gray'},
         annotations: annotations,
         margin: {r: 50, l: 50 },
         plot_bgcolor: '#202020',
