@@ -8,11 +8,11 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def home():
-    return "Welcome to Team 144 ? I think Flask app is running"
+    return "Welcome to Team 144 ? I think the Flask server is running."
     
 @app.route('/chart')
 def chart():
-    return render_template('chart.html')
+    return render_template('chart.html', time_elapsed=app.time_elapsed)
     
 @app.route('/api/options-data', methods=['GET'])
 def get_all_options_data():
