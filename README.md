@@ -19,7 +19,7 @@ Here is a diagram of the layout:
 │ ├── database.py # Database connection and session management<br>
 │ <br>
 ├── data_structures # Data structures for in-memory processing<br>
-│ ├── BinaryHeap.py - **TODO**<br>
+│ ├── BinaryHeap.py - <br>
 │ ├── HashTable.py # Hash table operations<br>
 │ <br>
 ├── templates # Flask templates<br>
