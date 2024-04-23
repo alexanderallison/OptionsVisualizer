@@ -41,7 +41,8 @@ Note: in pycharm use a venv interpreter
 pip install flask yfinance plotly pandas sqlalchemy pandas_datareader setuptools yfinance[nospam]
 
 <u>**to run:**</u><br>
-python main.py 
+python main.py (for HashTable implementation) <br>
+python main.py heap (for BinaryHeap implementation) <br>
 after stats calculated go to to view Bubble chart:
 http://127.0.0.1:5000/chart
 
